@@ -12,7 +12,7 @@ library(tidyverse)
 
 ## Task 1
 ```{r}
-pm2_5 <- 100
+pm2_5 <- 200
 
 if (pm2_5 < 100) {
   print("Low to moderate risk")
@@ -40,7 +40,7 @@ if (str_detect(species, "whale")) {
 
 ## Task 3 
 ```{r}
-max_airtemp_c <- 50
+max_airtemp_c <- 27
 
 if (max_airtemp_c > 27) {
   print("Temperature too high")
@@ -51,57 +51,51 @@ if (max_airtemp_c > 27) {
 # changed air temp from 24.1 to 50 and it worked, yay!
 
 ```
+
 ## Task 4 
+
 ```{r}
 base_burrito <- 6.50
-main_ingredient <- c("veggie", "chicken", "steak")
+main_ingredient <- "chicken"
 
 if (str_detect(main_ingredient, "veggie")) {
   print(base_burrito)
-} if (str_detect(main_ingredient, "chicken")) {
+} else if (str_detect(main_ingredient, "chicken")) {
   print(base_burrito + 3)
-} if (str_detect(main_ingredient, "steak")) {
+} else if (str_detect(main_ingredient, "steak")) {
   print(base_burrito + 3.25)
 }
 
-# come back to this task later
-
 ```
-## Task 4
+## Task 5
+Create a new vector called fish that contains the values 8, 10, 12, 23 representing counts of different fish types in a fish tank (goldfish, tetras, guppies, and mollies, respectively). Write a for loop that iterates through fish, and returns what proportion of total fish in the tank are that species. Assume that these counts represent all fish in the tank.
 ```{r}
+fish_name <- c("goldfish", "tetras", "guppies", "mollies")
 fish <- c(8, 10, 12, 23)
 sum_fish <- sum(fish)
 sum_fish
 
-# proportion is fish type / 53
+# proportion is count of each fish type / 53
 
 proportion_fish <- vector(mode = "numeric", length = length(fish))
 
 for (i in seq_along(fish)) {
-  proportion_val <- (fish / sum_fish)
-  proportion_fish <- proportion_val
+  proportion_val <- (fish[i] / sum_fish)
+  proportion_fish[i] <- paste(proportion_val, fish_name[i])
 }
 
 proportion_fish
 
-# for iterating and having the fish names come out
-
-# fish_names <- c("goldfish", "tetras", "guppies", "mollies")
-
-#for (i in seq_along(fish)) {
-#  proportion_val <- fish[i] / sum(fish)
-#  proportion_fish <- proportion_val
-#  print(paste(fish_names[i]), proportion_fish)
-# }
-
 ```
 
 ## Task 6 
-```{r}
-month.name <- month.name
+There is an existing vector in R called month.name that contains all month names (just try running month.name in the Console to check it out). Write a for loop that iterates over all months in month.name and prints “January is month 1,” “February is month 2”, etc.
 
+Hint: you can index values in the month.name vector just like you would any other vector (e.g., try running month.name[5]).
+
+```{r}
 for (i in seq_along(month.name)) {
-  print(month.name[i])
+  print(paste(month.name[i], "is month", i))
 }
 
 ```
