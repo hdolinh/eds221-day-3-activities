@@ -38,7 +38,7 @@ for (i in 1:ncol(inlet_biochem)) {
 }
 
 mean_inlet_biochem
-# remember that [] the output will be container and its contents, and with [[]] is will only be the contents, or values.  
+# remember that [] the output will be container/structure and its contents/values, and with [[]] is will only be the contents, or values.  
 
 # find mean using apply()
 apply(X = inlet_biochem, 2, mean, na.rm = TRUE)
